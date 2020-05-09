@@ -1,5 +1,5 @@
 import { draw } from './src/draw';
-import { canvas, insertCell, randomCells, clearCells} from './src/utils';
+import { canvas, insertCell, randomCells, clearCells,lifeCycle } from './src/utils';
 
 const start = () => {
 
@@ -9,12 +9,16 @@ const start = () => {
 
     document.getElementById("rngBtn").addEventListener('click', () => {
         randomCells();
-    })
+    });
 
     document.getElementById("clrBtn").addEventListener('click', () => {
         clearCells();
         draw();
-    })
+    });
+    
+    document.getElementById("verifyBtn").addEventListener('click', () => {
+        lifeCycle();
+    });
 }
 
 start();

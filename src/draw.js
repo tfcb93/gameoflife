@@ -1,10 +1,19 @@
-import { canvas, context, liveCells } from './utils';
+import { canvas, context, liveCells, verify } from './utils';
+import { verifySurroundings, clearAllSurroundings, killCells, doTheMiracleOfLife, allSurroundingList } from './lifecycle';
 
 const draw = () => {
     
     context.clearRect(0, 0, canvas.width, canvas.height);
     drawGrid();
     drawSquares();
+    if(verify) {
+        liveCells.forEach(cell => verifySurroundings(cell[0], cell[1]));
+        allSurroundingList.forEach(cell => verifySurroundings(cell[0], cell[1], false));
+        killCells();
+        doTheMiracleOfLife()
+        clearAllSurroundings();
+        console.log(allSurroundingList);
+    }
 
     requestAnimationFrame(draw);
 }

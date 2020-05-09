@@ -2,6 +2,7 @@ const canvas = document.getElementById("game");
 const context = canvas.getContext("2d");
 
 let liveCells = [];
+let verify = false;
 
 const insertCell = (x, y) => {
     const mouseActualPos = [parseInt(x / 5), parseInt(y / 5)];
@@ -38,4 +39,20 @@ const clearCells = () => {
     liveCells = [];
 }
 
-export {canvas, context, insertCell, randomCells, liveCells, clearCells};
+const addLiveCells = (newCells = []) => {
+    liveCells = [...liveCells, ...newCells];
+}
+
+const removeLiveCells = (x, y) => {
+    liveCells = liveCells.filter(cell => cell[0] !== x || cell[1] !== y);
+}
+
+const lifeCycle = () => {
+    if(verify) {
+        verify = false;
+    } else {
+        verify = true;
+    }
+}
+
+export {canvas, context, insertCell, randomCells, liveCells, clearCells, verify, lifeCycle, checkSquareAlreadyDrawed, removeLiveCells, addLiveCells};
