@@ -3,9 +3,18 @@ import { lineWidth } from './draw';
 const canvas = document.getElementById("game");
 const context = canvas.getContext("2d");
 
+let canvasSize;
+
 let liveCells = [];
 let verify = false;
 let iterations = 0;
+
+const getCanvasSize = () => {
+    canvasSize = [document.querySelector(".canvas_container").offsetWidth, document.querySelector(".canvas_container").offsetHeight];
+    console.log(canvasSize);
+    context.canvas.width = canvasSize[0];
+    context.canvas.height = canvasSize[1];
+}
 
 const increaseIterations = () => {
     iterations++;
@@ -66,4 +75,4 @@ const lifeCycle = () => {
     }
 }
 
-export {canvas, context, insertCell, randomCells, liveCells, clearCells, verify, lifeCycle, checkSquareAlreadyDrawed, removeLiveCells, addLiveCells, increaseIterations, getIterations};
+export {canvas, context, insertCell, randomCells, liveCells, clearCells, verify, lifeCycle, checkSquareAlreadyDrawed, removeLiveCells, addLiveCells, increaseIterations, getIterations, getCanvasSize, canvasSize};
