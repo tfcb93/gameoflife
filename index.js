@@ -1,5 +1,5 @@
-import { draw } from './src/draw';
-import { canvas, insertCell, randomCells, clearCells,lifeCycle } from './src/utils';
+import { draw, setLineWidth, lifeSequence } from './src/draw';
+import { canvas, insertCell, randomCells, clearCells,lifeCycle, verify } from './src/utils';
 
 const start = () => {
 
@@ -16,8 +16,22 @@ const start = () => {
         draw();
     });
     
+    document.getElementById("stepBtn").addEventListener('click', (e) => {
+        lifeSequence();
+    });
+    
+    document.getElementById("lineRange").addEventListener('input', (e) => {
+        setLineWidth(e.target.value);
+        document.getElementById("rangeActualValue").innerHTML = e.target.value;
+    });
+
     document.getElementById("verifyBtn").addEventListener('click', () => {
         lifeCycle();
+        if(verify) {
+            document.getElementById("verifyBtn").innerHTML = "Pause";
+        } else {
+            document.getElementById("verifyBtn").innerHTML = "Play";
+        }
     });
 }
 

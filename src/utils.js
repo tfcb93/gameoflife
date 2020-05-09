@@ -1,11 +1,22 @@
+import { lineWidth } from './draw';
+
 const canvas = document.getElementById("game");
 const context = canvas.getContext("2d");
 
 let liveCells = [];
 let verify = false;
+let iterations = 0;
+
+const increaseIterations = () => {
+    iterations++;
+}
+
+const getIterations = () => {
+    return iterations;
+}
 
 const insertCell = (x, y) => {
-    const mouseActualPos = [parseInt(x / 5), parseInt(y / 5)];
+    const mouseActualPos = [parseInt(x / lineWidth), parseInt(y / lineWidth)];
     if(checkSquareAlreadyDrawed(mouseActualPos[0], mouseActualPos[1])) {
         liveCells = liveCells.filter(c => c[0] !== mouseActualPos[0] || c[1] !== mouseActualPos[1]);
     } else {
@@ -20,8 +31,8 @@ const randomCells = () => {
     const seedQtd = Math.floor(Math.random() * 10 + 1);
 
     for(let seeder = 0; seeder < seedQtd; seeder++) {
-        const cellX = parseInt(Math.floor(Math.random() * canvas.width) / 5);
-        const cellY = parseInt(Math.floor(Math.random() * canvas.height) / 5);
+        const cellX = parseInt(Math.floor(Math.random() * canvas.width) / lineWidth);
+        const cellY = parseInt(Math.floor(Math.random() * canvas.height) / lineWidth);
         liveCells.push([cellX, cellY]);
     }
 
@@ -55,4 +66,4 @@ const lifeCycle = () => {
     }
 }
 
-export {canvas, context, insertCell, randomCells, liveCells, clearCells, verify, lifeCycle, checkSquareAlreadyDrawed, removeLiveCells, addLiveCells};
+export {canvas, context, insertCell, randomCells, liveCells, clearCells, verify, lifeCycle, checkSquareAlreadyDrawed, removeLiveCells, addLiveCells, increaseIterations, getIterations};

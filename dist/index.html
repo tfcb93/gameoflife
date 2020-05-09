@@ -4,22 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game of Life</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="content">
+        <div class="ctrl_container">
+            <input id="lineRange" type="range" min="5" max="50" step="5" value="5" />
+            <span id="rangeActualValue">5</span>
+        </div>
         <canvas id="game" width="640" height="480">
             <div>
                 You can't see this canvas. Sorry.
             </div>
         </canvas>
         <div class="btn_container">
-            <button id="clrBtn">
-                Clear cells
-            </button>
-            <button id="rngBtn">
-                Random seeds
-            </button>
             <button id="verifyBtn">Play</button>
+            <button id="stepBtn">Step</button>
+            <button id="rngBtn">Random seeds</button>
+            <button id="clrBtn">Clear cells</button>
         </div>
     </div>
 </body>

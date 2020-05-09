@@ -1,5 +1,8 @@
-import { canvas, context, liveCells, verify } from './utils';
+import { canvas, context, liveCells, verify, increaseIterations, getIterations } from './utils';
 import { verifySurroundings, clearAllSurroundings, killCells, doTheMiracleOfLife, allSurroundingList } from './lifecycle';
+
+let lineWidth = 5;
+
 
 const draw = () => {
     
@@ -7,14 +10,20 @@ const draw = () => {
     drawGrid();
     drawSquares();
     if(verify) {
-        liveCells.forEach(cell => verifySurroundings(cell[0], cell[1]));
-        allSurroundingList.forEach(cell => verifySurroundings(cell[0], cell[1], false));
-        killCells();
-        doTheMiracleOfLife()
-        clearAllSurroundings();
+        lifeSequence();
     }
 
     requestAnimationFrame(draw);
+}
+
+const lifeSequence = () => {
+    liveCells.forEach(cell => verifySurroundings(cell[0], cell[1]));
+    allSurroundingList.forEach(cell => verifySurroundings(cell[0], cell[1], false));
+    killCells();
+    doTheMiracleOfLife()
+    console.log(allSurroundingList)
+    clearAllSurroundings();
+    increaseIterations();
 }
 
 const drawGrid = () => {
@@ -26,7 +35,7 @@ const drawGrid = () => {
         context.strokeStyle = "#a8a8a8";
         context.stroke();
 
-        line += 5;
+        line += lineWidth;
     }
     
     line = 0;
@@ -37,7 +46,7 @@ const drawGrid = () => {
         context.strokeStyle = "#a8a8a8";
         context.stroke();
 
-        line += 5;
+        line += lineWidth;
     }
 }
 
@@ -47,9 +56,13 @@ const drawSquares = () => {
 
 const drawSquare = (x, y) => {
     context.beginPath();
-    context.rect(x * 5, y * 5, 5, 5);
+    context.rect(x * lineWidth, y * lineWidth, lineWidth, lineWidth);
     context.fillStyle = "red";
     context.fill()
 }
 
-export {draw, drawGrid, drawSquare, drawSquares};
+const setLineWidth = (val) => {
+    lineWidth = parseInt(val);
+}
+
+export {draw, drawGrid, drawSquare, drawSquares, setLineWidth, lineWidth, lifeSequence};
