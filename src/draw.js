@@ -12,7 +12,6 @@ const draw = () => {
         killCells();
         doTheMiracleOfLife()
         clearAllSurroundings();
-        console.log(allSurroundingList);
     }
 
     requestAnimationFrame(draw);
