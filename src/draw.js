@@ -1,4 +1,4 @@
-import { canvas, context, liveCells, verify, increaseIterations, getIterations, canvasSize } from './utils';
+import { canvas, context, liveCells, verify, increaseIterations, canvasSize } from './utils';
 import { verifySurroundings, clearAllSurroundings, killCells, doTheMiracleOfLife, allSurroundingList } from './lifecycle';
 
 let lineWidth = 15;
@@ -27,10 +27,10 @@ const lifeSequence = () => {
 
 const drawGrid = () => {
     let line = 0;
-    while(line < canvasSize[0]) {
+    while(line < canvasSize.width) {
         context.beginPath();
         context.moveTo(line, 0);
-        context.lineTo(line, canvasSize[1]);
+        context.lineTo(line, canvasSize.height);
         context.strokeStyle = "rgba(120, 120, 120, 0.5)";
         context.stroke();
 
@@ -38,10 +38,10 @@ const drawGrid = () => {
     }
     
     line = 0;
-    while(line < canvasSize[1]) {
+    while(line < canvasSize.height) {
         context.beginPath();
         context.moveTo(0, line);
-        context.lineTo(canvasSize[0], line);
+        context.lineTo(canvasSize.width, line);
         context.strokeStyle = "rgba(120, 120, 120, 0.5)";
         context.stroke();
 

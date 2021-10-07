@@ -1,5 +1,5 @@
-import { draw, setLineWidth, lifeSequence } from './draw';
-import { canvas, insertCell, randomCells, clearCells,lifeCycle, verify, getCanvasSize } from './utils';
+import { draw, lifeSequence } from './draw';
+import { canvas, insertCell, clearCells,lifeCycle, verify, getCanvasSize } from './utils';
 
 const start = () => {
 
@@ -7,10 +7,6 @@ const start = () => {
 
     canvas.addEventListener('click', (e) => {
         insertCell(e.offsetX, e.offsetY);
-    });
-
-    document.getElementById("rngBtn").addEventListener('click', () => {
-        randomCells();
     });
 
     document.getElementById("clrBtn").addEventListener('click', () => {
@@ -21,11 +17,6 @@ const start = () => {
     document.getElementById("stepBtn").addEventListener('click', (e) => {
         lifeSequence();
     });
-    
-    // document.getElementById("lineRange").addEventListener('input', (e) => {
-    //     setLineWidth(e.target.value);
-    //     document.getElementById("rangeActualValue").innerHTML = e.target.value;
-    // });
 
     document.getElementById("verifyBtn").addEventListener('click', () => {
         lifeCycle();

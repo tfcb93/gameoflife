@@ -3,24 +3,22 @@ import { lineWidth } from './draw';
 const canvas = document.getElementById("game");
 const context = canvas.getContext("2d");
 
-let canvasSize;
+const canvasSize = {
+    width: 0,
+    height: 0
+};
 
 let liveCells = [];
 let verify = false;
 let iterations = 0;
 
 const getCanvasSize = () => {
-    canvasSize = [document.querySelector(".canvas_container").offsetWidth, document.querySelector(".canvas_container").offsetHeight];
-    // context.canvas.width = canvasSize[0];
-    // context.canvas.height = canvasSize[1];
+    canvasSize.width = document.querySelector(".canvas_container").offsetWidth;
+    canvasSize.height = document.querySelector(".canvas_container").offsetHeight;
 }
 
 const increaseIterations = () => {
     iterations++;
-}
-
-const getIterations = () => {
-    return iterations;
 }
 
 const insertCell = (x, y) => {
@@ -30,20 +28,6 @@ const insertCell = (x, y) => {
     } else {
         liveCells.push([mouseActualPos[0], mouseActualPos[1]]);
     }
-}
-
-const randomCells = () => {
-
-    liveCells = [];
-
-    const seedQtd = Math.floor(Math.random() * 10 + 1);
-
-    for(let seeder = 0; seeder < seedQtd; seeder++) {
-        const cellX = parseInt(Math.floor(Math.random() * canvas.width) / lineWidth);
-        const cellY = parseInt(Math.floor(Math.random() * canvas.height) / lineWidth);
-        liveCells.push([cellX, cellY]);
-    }
-
 }
 
 const checkSquareAlreadyDrawed = (x, y) => {
@@ -74,4 +58,4 @@ const lifeCycle = () => {
     }
 }
 
-export {canvas, context, insertCell, randomCells, liveCells, clearCells, verify, lifeCycle, checkSquareAlreadyDrawed, removeLiveCells, addLiveCells, increaseIterations, getIterations, getCanvasSize, canvasSize};
+export {canvas, context, insertCell, randomCells, liveCells, clearCells, verify, lifeCycle, checkSquareAlreadyDrawed, removeLiveCells, addLiveCells, increaseIterations, getCanvasSize, canvasSize};

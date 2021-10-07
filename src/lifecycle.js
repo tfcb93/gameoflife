@@ -36,12 +36,6 @@ const verifySurroundings = (x, y, isVerifyingLiveCells = true) => {
     }
 }
 
-/**
- * It might have a better way to do that, but for now, I gonna let this way.
- * 
- * I also need to check if the surrounding is already over the live cells since I don't want to recompute it
- */
-
 const includeSurrougings = (x, y) => {
     if(allSurroundingList.find(cell => cell[0] === x && cell[1] === y) || liveCells.find(cell => cell[0] === x && cell[1] === y)) {
         return;
