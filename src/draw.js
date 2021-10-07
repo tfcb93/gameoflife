@@ -1,7 +1,7 @@
 import { canvas, context, liveCells, verify, increaseIterations, getIterations, canvasSize } from './utils';
 import { verifySurroundings, clearAllSurroundings, killCells, doTheMiracleOfLife, allSurroundingList } from './lifecycle';
 
-let lineWidth = 5;
+let lineWidth = 15;
 
 
 const draw = () => {
@@ -31,7 +31,7 @@ const drawGrid = () => {
         context.beginPath();
         context.moveTo(line, 0);
         context.lineTo(line, canvasSize[1]);
-        context.strokeStyle = "#a8a8a8";
+        context.strokeStyle = "rgba(120, 120, 120, 0.5)";
         context.stroke();
 
         line += lineWidth;
@@ -42,7 +42,7 @@ const drawGrid = () => {
         context.beginPath();
         context.moveTo(0, line);
         context.lineTo(canvasSize[0], line);
-        context.strokeStyle = "#a8a8a8";
+        context.strokeStyle = "rgba(120, 120, 120, 0.5)";
         context.stroke();
 
         line += lineWidth;

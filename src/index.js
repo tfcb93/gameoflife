@@ -1,5 +1,5 @@
-import { draw, setLineWidth, lifeSequence } from './src/draw';
-import { canvas, insertCell, randomCells, clearCells,lifeCycle, verify, getCanvasSize } from './src/utils';
+import { draw, setLineWidth, lifeSequence } from './draw';
+import { canvas, insertCell, randomCells, clearCells,lifeCycle, verify, getCanvasSize } from './utils';
 
 const start = () => {
 

@@ -11,9 +11,8 @@ let iterations = 0;
 
 const getCanvasSize = () => {
     canvasSize = [document.querySelector(".canvas_container").offsetWidth, document.querySelector(".canvas_container").offsetHeight];
-    console.log(canvasSize);
-    context.canvas.width = canvasSize[0];
-    context.canvas.height = canvasSize[1];
+    // context.canvas.width = canvasSize[0];
+    // context.canvas.height = canvasSize[1];
 }
 
 const increaseIterations = () => {
