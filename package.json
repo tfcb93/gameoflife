@@ -10,7 +10,7 @@
   "author": "Thiago Borges",
   "license": "ISC",
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.0.0",
+    "@parcel/transformer-sass": "^2.7.0",
     "parcel": "^2.0.0"
   }
 }
