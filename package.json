@@ -11,6 +11,6 @@
   "license": "ISC",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.7.0",
-    "parcel": "^2.0.0"
+    "parcel": "^2.8.3"
   }
 }
