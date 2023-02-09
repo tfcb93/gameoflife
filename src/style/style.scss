@@ -1,52 +1,63 @@
 body {
-    margin: 0;
+  margin: 0;
+  overflow: hidden;
 }
 
-nav {
-    width: 100%;
-    padding-top: 30px;
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2rem;
+// New Styles
 
+.canvas-container {
+  width: calc(100vw - 300px);
+
+  & > canvas {
+    border: 2px solid black;
+  }
+}
+
+// Old styles
+nav {
+  width: 100%;
+  padding-top: 30px;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
 }
 
 .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 50px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 50px;
 }
 
 .btn_container {
-    padding: 10px;
-    
-    > button {
-        padding: 10px;
-        margin-bottom: 10px;
-        background-color: white;
-        border: 1px solid black;
-        color: black;
-        font-family: 'Lato', sans-serif;
-        font-size: 1rem;
-        transition: color 0.2s ease-out, background-color 0.2s ease-out;
-        
-        &:hover {
-            background-color: black;
-            color: white;
-            transition: color 0.2s ease-in, background-color 0.2s ease-in;
-            cursor: pointer;
-        }
+  padding: 10px;
 
-        &:focus {
-            outline: none;
-        }
+  > button {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    font-family: "Lato", sans-serif;
+    font-size: 1rem;
+    transition: color 0.2s ease-out, background-color 0.2s ease-out;
+
+    &:hover {
+      background-color: black;
+      color: white;
+      transition: color 0.2s ease-in, background-color 0.2s ease-in;
+      cursor: pointer;
     }
+
+    &:focus {
+      outline: none;
+    }
+  }
 }
 
 .canvas_container {
-    > canvas {
-        border: 1px solid black;
-    }
+  > canvas {
+    border: 1px solid black;
+  }
 }

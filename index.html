@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Game of Life</title>
-    <link rel="stylesheet" href="./src/style/style.scss">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Lato&display=swap" rel="stylesheet">
-</head>
-<body>
-    <nav>
-        Conway's Game of Life
-    </nav>
-    <div class="content">
-        <div class="canvas_container">
-            <canvas id="game" width="600" height="600">
-                <div>
-                    You can't see this canvas. Sorry.
-                </div>
-            </canvas>
-        </div>
-        <div class="btn_container">
-            <button id="verifyBtn">Play</button>
-            <button id="stepBtn">Step</button>
-            <button id="clrBtn">Clear cells</button>
-        </div>
+    <link rel="stylesheet" href="./src/style/style.scss" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat|Lato&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="page">
+      <div class="canvas-container">
+        <canvas id="game">
+          Sorry. Your browser is not allowing to see the canvas.
+        </canvas>
+      </div>
+      <div class="options-container"></div>
     </div>
-</body>
-<script type="module" src="./src/index.js"></script>
+    <!-- <nav>Conway's Game of Life</nav>
+    <div class="content">
+      <div class="canvas_container">
+        <canvas id="game" width="600" height="600">
+          <div>You can't see this canvas. Sorry.</div>
+        </canvas>
+      </div>
+      <div class="btn_container">
+        <button id="verifyBtn">Play</button>
+        <button id="stepBtn">Step</button>
+        <button id="clrBtn">Clear cells</button>
+      </div>
+    </div> -->
+  </body>
+  <script type="module" src="./src/index.ts"></script>
 </html>

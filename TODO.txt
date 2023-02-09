@@ -1,0 +1,11 @@
+TODO:
+- Modo claro e escuro
+- Menu com várias opções
+  - Exemplos de jogos
+- Fazer as celulas darem loop nas bordas (e.g.: se descer, ao sair aparecer em cima, como se desse a volta).
+- Comandos
+  - Play
+  - Pause
+  - Stop (reinicia)
+  - Step
+  - Clear
