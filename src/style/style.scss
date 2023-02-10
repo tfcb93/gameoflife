@@ -23,8 +23,37 @@ body {
 .options-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 15px;
   gap: 15px;
+  width: 100%;
+}
+
+.button {
+  padding: 10px 20px;
+  border-radius: 4px;
+  width: 200px;
+  font-size: 16px;
+
+  &-light {
+    border: 2px solid #301e67;
+    background-color: white;
+    color: #301e67;
+    &:disabled {
+      border: 2px solid #301e6760;
+      color: #301e6760;
+    }
+  }
+
+  &-dark {
+    border: 2px solid white;
+    background-color: black;
+    color: white;
+    &:disabled {
+      border: 2px solid #ececec60;
+      color: #ececec60;
+    }
+  }
 }
 
 // Old styles

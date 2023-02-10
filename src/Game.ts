@@ -11,25 +11,22 @@ class Game {
 
   addCell(x, y, squareSize) {
     // First I need to check if I already have a cell on that position
-    const existentCell = this.liveCells.find((cell) => {
+    // We filter any entry for that cell first
+    const existentCells = this.liveCells.filter((cell) => {
       const position = cell.returnPosition();
-      return position[0] === x && position[1] === y;
+      return position[0] !== x || position[1] !== y;
     });
     // If not exists, add
-    if (existentCell === undefined) {
+    // If both arrays has the same length, they are the same
+    if (existentCells.length === this.liveCells.length) {
       this.liveCells.push(new Cell(x, y, squareSize));
     } else {
-      // Else, delete
-      // this.liveCells = this.liveCells.filter((cell))
+      // Otherwise, delete it
+      this.liveCells = existentCells;
     }
   }
 
-  drawOnClick(ctx) {
-    const lastIndex = this.liveCells.length - 1;
-    this.liveCells[lastIndex].draw(ctx);
-  }
-
-  drawOnPlay(ctx) {
+  draw(ctx) {
     this.liveCells.forEach((cell) => {
       cell.draw(ctx);
     });

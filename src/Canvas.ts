@@ -37,12 +37,18 @@ class Canvas {
         e.clientY - (e.clientY % 20),
         this.squareSize
       );
-      this.game.drawOnClick(this.context);
+      this.draw();
     });
     document.addEventListener("keydown", (e) => {});
   }
 
   draw() {
+    this.context?.clearRect(0, 0, this.width, this.height);
+    this.drawGrid();
+    this.game.draw(this.context);
+  }
+
+  drawGrid() {
     this.context?.beginPath();
     this.context!.strokeStyle = this.gridColor;
     this.context!.fillStyle = this.gridColor;
@@ -59,9 +65,7 @@ class Canvas {
 
   playAnimation() {
     this.game.lifeCycle();
-    this.context?.clearRect(0, 0, this.width, this.height);
     this.draw();
-    this.game.drawOnPlay(this.context);
     this.animationId = requestAnimationFrame(this.playAnimation.bind(this));
   }
 
@@ -72,21 +76,21 @@ class Canvas {
   stepAnimation() {
     this.game.lifeCycle();
     this.context?.clearRect(0, 0, this.width, this.height);
-    this.draw();
-    this.game.drawOnPlay(this.context);
+    this.drawGrid();
+    this.game.draw(this.context);
   }
 
   clear() {
     this.game.clearCells();
     this.context?.clearRect(0, 0, this.width, this.height);
-    this.draw();
+    this.drawGrid();
   }
 
   changeGridColor(color) {
     this.gridColor = color;
     this.context?.clearRect(0, 0, this.width, this.height);
-    this.draw();
-    this.game.drawOnPlay(this.context);
+    this.drawGrid();
+    this.game.draw(this.context);
   }
 }
 
