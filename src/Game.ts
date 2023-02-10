@@ -2,12 +2,10 @@ import Cell from "./Cell";
 
 class Game {
   public liveCells: Array<Cell>;
-  public deadCells: Array<Cell>;
   public squareSize: number;
 
   constructor(squareSize) {
     this.liveCells = [];
-    this.deadCells = [];
     this.squareSize = squareSize;
   }
 
@@ -20,8 +18,10 @@ class Game {
     // If not exists, add
     if (existentCell === undefined) {
       this.liveCells.push(new Cell(x, y, squareSize));
+    } else {
+      // Else, delete
+      // this.liveCells = this.liveCells.filter((cell))
     }
-    // Else, ignore
   }
 
   drawOnClick(ctx) {
@@ -124,6 +124,10 @@ class Game {
         new Cell(newCellPos[0], newCellPos[1], this.squareSize)
       );
     });
+  }
+
+  clearCells() {
+    this.liveCells = [];
   }
 }
 

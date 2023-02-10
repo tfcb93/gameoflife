@@ -5,12 +5,26 @@ body {
 
 // New Styles
 
+.page {
+  display: flex;
+  height: 100vh;
+  &-light {
+    background-color: white;
+  }
+  &-dark {
+    background-color: black;
+  }
+}
+
 .canvas-container {
   width: calc(100vw - 300px);
+}
 
-  & > canvas {
-    border: 2px solid black;
-  }
+.options-container {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  gap: 15px;
 }
 
 // Old styles

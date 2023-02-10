@@ -2,12 +2,10 @@ class Cell {
   private x: number;
   private y: number;
   private cellWidthAndHeight: number;
-  private isCellAlive: boolean;
   constructor(x, y, squareSize) {
     this.x = x;
     this.y = y;
     this.cellWidthAndHeight = squareSize;
-    this.isCellAlive = true;
   }
 
   draw(ctx: CanvasRenderingContext2D) {
